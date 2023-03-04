@@ -78,7 +78,15 @@ CFB
 
 ---
 ## Beer
-SJQ
+- 問題コード: SJQ
+- 点数: 200点
+- 難易度: 普通
+- 解説
+  - FRR問
+  - rfc8212に関する問題
+    - `no bgp ebgp-requires-policy`
+    - もしくは、policyを書く
+  - +router-idを変更
 
 ---
 ##
