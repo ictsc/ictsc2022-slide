@@ -5,7 +5,7 @@ paginate: true
 _paginate: false
 ---
 
-# ICTSC 202 Score Server 使い方紹介
+# ICTSC 2022 Score Server 使い方紹介
 
 ---
 
