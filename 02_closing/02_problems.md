@@ -58,11 +58,28 @@ LWG
 
 ---
 ## protocが… 見つからない⁉︎
-AJL
+- 問題コード: AJL
+- 点数: 300点
+- 難易度: 難しい
+- 解説
+  - protocがglibcに依存しているが、Alpineの標準ライブラリはmusl
+    - 想定解法: Alpine上 (musl環境) でprotocをビルドする
+    - 別解: gcompat (互換性ライブラリ) をインストールする
+  - protocはlibstdc++にも依存しているので、入れる
+  - protocのGo用プラグインが入っていないので、入れる
+- コメント: C / Linuxに詳しい人は当たりがつく、あまり詳しくない人は原因が謎のまま沼るという感じの問題だったと思う
 
 ---
-## 答えてくれPingサーバー、ここにはuserモードとsystemdと、俺がいる！
-DKV
+## 答えてくれPingサーバー、ここには<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;userモードとsystemdと、俺がいる！
+- 問題コード: DKV
+- 点数: 150点
+- 難易度: 普通
+- 解説
+  - userモードのsystemdには`multi-user.target`というユニットが存在しない
+    - WantedByを`default.target`に変更する
+  - deployスクリプトにenable (自動起動の有効化) が抜けているため、挿入する
+  - **deployスクリプトを実行する**
+- コメント: 前提条件を破っている / スクリプトの実行を忘れている回答が多かった
 
 ---
 ## 俺自身がDHCPサーバーとなることだ
