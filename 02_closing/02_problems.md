@@ -70,7 +70,8 @@ LWG
 - コメント: C / Linuxに詳しい人は当たりがつく、あまり詳しくない人は原因が謎のまま沼るという感じの問題だったと思う
 
 ---
-## 答えてくれPingサーバー、ここには<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;userモードとsystemdと、俺がいる！
+
+## 答えてくれPingサーバー、ここには<br><div style="text-align: right">userモードとsystemdと、俺がいる！</div>
 - 問題コード: DKV
 - 点数: 150点
 - 難易度: 普通
