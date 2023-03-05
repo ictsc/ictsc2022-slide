@@ -147,7 +147,7 @@ LWG
 ---
 ## 奴の名は
 - 問題コード: QVF
-- 点数: 点
+- 点数: 150点
 - 難易度: 普通
 - 解説
   - LDAPサーバーは正常だが、クライアント側で設定ができていない
@@ -198,4 +198,11 @@ LWG
 
 ---
 ## オレオレS3
-CYA
+- 問題コード: CYA
+- 点数: 100点
+- 難易度: 普通
+- 解説
+  - td-agentの設定が、サブドメインスタイルになっていたため、http://test.192.168.19.2/ にアクセスしていた
+      - `/etc/td-agent/td-agent.conf` に `force_path_style true`を追加
+  - td-agentにnginxのaccess.logを読む権限がない
+      - td-agentユーザーをadmグループに追加するか、ログをchmod 644する
