@@ -344,3 +344,13 @@ _class: text-top
       - `/etc/td-agent/td-agent.conf` に `force_path_style true`を追加
   - td-agentにnginxのaccess.logを読む権限がない
       - td-agentユーザーをadmグループに追加するか、ログをchmod 644する
+
+---
+
+<!-- 
+_class: text-top
+ -->
+
+## 解かれた問題一覧
+
+![](./fig/resolved.png)
