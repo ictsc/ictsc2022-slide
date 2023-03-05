@@ -120,10 +120,6 @@ paginate: true
 
 `trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -ne "\033[2J\033[;H" "$(figlet -w 300 ${string})"; string="${string:1}${string:0:1}"; sleep 0.25; done`
 
-
-
-
-
 ---
 ## 盲点の窓
 - 問題コード: RCT **(12/22)**
