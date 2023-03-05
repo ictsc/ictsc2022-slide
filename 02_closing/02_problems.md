@@ -60,11 +60,36 @@ paginate: true
 
 ---
 ## IPv6のDHCP
-GWE
+- 問題コード: GWE
+- 点数: 100 点
+- 難易度: 普通
+- 解説
+  - トラブル
+    - frrをインストールして、SLAACをする構築問題
+  - 解答例
+    - dhcp-serverに apt等でfrrをインストールし、
+    固定IPを設定、公式ドキュメントのSLAACの設定を入れる
+    - clientはIPv6のdhcpをnetplanで有効にする
+
+
 
 ---
 ## たかし先輩のK8s作問
-UCT
+- 問題コード: UCT
+- 点数: 150 点
+- 難易度: 普通
+- 解説
+  - トラブル
+    - K8sにIngressリソースがデプロイできない問題
+      kubectlがエラーを出してapplyできない
+    - YAMLの仕様で`y`がstringではなく booleanと認識されるため
+    - Ingressコントローラーが存在しない
+  - 解答例
+    - `y`を`"y"`などに書き換え
+    - `minikube addons enable ingress`でminikubeのingressプラグインを有効化
+
+
+
 
 ---
 ## 
@@ -158,8 +183,18 @@ LWG
   - +router-idを変更
 
 ---
-##
-AVU
+## 魔王様の求人
+- 問題コード: AVU
+- 点数: 250 点
+- 難易度: 難しい
+- 解説
+  - トラブル
+    - k8sにデプロイされたrookのosdが起動しない
+    - 起動時にLVが活性化されない
+    - ICTSC2023の運営募集をおこなっていた
+  - 解答例
+    - `sudo apt install lvm2`を全nodeで実行
+    - 再起動もしくは`sudo vgchange -a y`を全nodeで行う
 
 ---
 ## オレオレS3
