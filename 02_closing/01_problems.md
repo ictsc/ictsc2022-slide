@@ -7,8 +7,13 @@ paginate: true
 # ひとこと解説
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## トラブルシューターの初仕事
-- 問題コード: OMU
+- 問題コード: OMU **(6/22)**
 - 点数: 250 点
 - 難易度: 難しい
 - 解説
@@ -20,8 +25,13 @@ paginate: true
     - `rt03` においてufwの影響でOSPFパケットが交換できていない
 
 ---
-## 俺はインターネットの一員になるんだ！
-- 問題コード: MZR
+
+<!-- 
+_class: text-top
+ -->
+
+## 俺はインターネットの一員になるんだ！(1/2)
+- 問題コード: MZR **(2/22)**
 - 点数: 250 点
 - 難易度: 難しい
 - 解説
@@ -29,13 +39,26 @@ paginate: true
     - BGPの経路交換自体は行えているのに疎通ができない
   - 原因
     - トンネル終端アドレスへの経路が、BGPによりトンネル内を経由する経路に上書きされている
-    - 「トンネル接続自体の通信がトンネル内を経由する」という矛盾が発生し、トンネル接続が切断
+    - 「トンネル接続自体の通信がトンネル内を経由する」という矛盾が発生し、トンネル接続が切断 （続く）
+
+---
+
+<!-- 
+_class: text-top
+ -->
+
+## 俺はインターネットの一員になるんだ！ (2/2)
   - 解答例
     - VRFを用いて、トンネル自体の構築に用いるルーティングテーブルと、トランジット接続網への通信に用いるルーティングテーブルを切り分ける
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## pingが飛ばない
-- 問題コード: VZX
+- 問題コード: VZX **(12/22)**
 - 点数: 50 点
 - 難易度: 簡単
 - 解説
@@ -47,8 +70,13 @@ paginate: true
     - 別途 ICMP を許可するようにファイヤーウォールを設定する
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## データベースに入れない！
-- 問題コード: ING
+- 問題コード: ING **(4/22)**
 - 点数: 200 点
 - 難易度: 普通
 - 解説
@@ -59,8 +87,13 @@ paginate: true
     - MySQLのuserユーザーがlocalhostからのログインのみ有効 (`'user'@'localhost'`)
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## IPv6のDHCP
-- 問題コード: GWE
+- 問題コード: GWE **(8/22)**
 - 点数: 100 点
 - 難易度: 普通
 - 解説
@@ -74,8 +107,13 @@ paginate: true
 
 
 ---
-## たかし先輩のK8s作問
-- 問題コード: UCT
+
+<!-- 
+_class: text-top
+ -->
+
+## たかし先輩のK8s作問 (1/2)
+- 問題コード: UCT **(6/22)**
 - 点数: 150 点
 - 難易度: 普通
 - 解説
@@ -83,7 +121,15 @@ paginate: true
     - K8sにIngressリソースがデプロイできない問題
       kubectlがエラーを出してapplyできない
     - YAMLの仕様で`y`がstringではなく booleanと認識されるため
-    - Ingressコントローラーが存在しない
+    - Ingressコントローラーが存在しない（続く）
+
+---
+
+<!-- 
+_class: text-top
+ -->
+
+## たかし先輩のK8s作問 (2/2)
   - 解答例
     - `y`を`"y"`などに書き換え
     - `minikube addons enable ingress`でminikubeのingressプラグインを有効化
@@ -92,37 +138,60 @@ paginate: true
 
 
 ---
-## Welcome to ICTSC!
-- 問題コード：LWG
+
+<!-- 
+_class: text-top
+ -->
+
+## Welcome to ICTSC! (1/2)
+- 問題コード：LWG **(13/22)**
 - 点数：150点
 - 難易度：普通
 - 解説
   - トラブル
-    - コンソールでしか遊べない問題
-    - ソースコードも残せない
-  - 問１
-    - ANSIエスケープシーケンスでそれぞれの背景色を力技でプロットしていきます。
-    - テクニックとしては`\x1b[4&m`と`\x1b[m`の中の数字が変わっているだけなので、対応する色の数だけをプロットし、その前後
-に`\x1b[4&m`と`\x1b[m`を追加することにより、短くすることが出来ます。これ以上短くしようとすると行列や図形的なアプローチが必要になる。
-    - 解答例:
-```
-echo -e "111  6666 44444  333  2222\n 1  6       4   3    2\n 1  6       4    33  2\n 1  6       4      3 2   \n111  6666   4   333   2222" | sed 's/ /  /g' | sed 's/[^ ]/\x1b[4&m  \x1b[m/g'
-```
-  -問２
-    - Welcome to ICTSC!という文字列の最も左にある文字を右に持ってくる動作を繰り返し、それを`figlet`で表示することで描画>できます。
-    - シェル変数を定義して文字列の変更を制御した場合は、`trap`コマンドを用いて動作終了時に設定したシェル変数を削除すると
-なおよし
-    - 解答例:
-```
-trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -ne "\033[2J\033[;H" "$(figlet -w 300 ${string})"; string="${string:1}${string:0:1}"; sleep 0.25; done
-```
-
-
-
+  - コンソールでしか遊べない問題
+  - ソースコードも残せない
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
+## Welcome to ICTSC!　問１ (2/3)
+
+- 解説
+  - ANSIエスケープシーケンスでそれぞれの背景色を力技でプロットする。
+  - テクニックとしては`\x1b[4&m`と`\x1b[m`の中の数字が変わっているだけなので、対応する色の数だけをプロットし、その前後に`\x1b[4&m`と`\x1b[m`を追加することにより、短くすることが出来ます。これ以上短くしようとすると行列や図形的なアプローチが必要になる。
+
+- 解答例
+
+`echo -e "111  6666 44444  333  2222\n 1  6       4   3    2\n 1  6       4    33  2\n 1  6       4      3 2   \n111  6666   4   333   2222" | sed 's/ /  /g' | sed 's/[^ ]/\x1b[4&m  \x1b[m/g'`
+
+---
+
+<!-- 
+_class: text-top
+ -->
+
+## Welcome to ICTSC! 問2 (3/3)
+
+- 解説
+  - Welcome to ICTSC!という文字列の最も左にある文字を右に持ってくる動作を繰り返し、それを`figlet`で表示することで描画>できます。
+  - シェル変数を定義して文字列の変更を制御した場合は、`trap`コマンドを用いて動作終了時に設定したシェル変数を削除するとなおよし
+  
+- 解答例:
+
+`trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -ne "\033[2J\033[;H" "$(figlet -w 300 ${string})"; string="${string:1}${string:0:1}"; sleep 0.25; done`
+
+---
+
+<!-- 
+_class: text-top
+ -->
+
 ## 盲点の窓
-- 問題コード: RCT
+- 問題コード: RCT **(12/22)**
 - 点数: 100 点
 - 難易度: 普通
 - 解説
@@ -134,8 +203,13 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
     - `blog.service` を修正するか Nginx のプロキシ先を修正する
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## protocが… 見つからない⁉︎
-- 問題コード: AJL
+- 問題コード: AJL **(6/22)**
 - 点数: 300点
 - 難易度: 難しい
 - 解説
@@ -148,8 +222,12 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
 
 ---
 
-## 答えてくれPingサーバー、ここには<br><div style="text-align: right">userモードとsystemdと、俺がいる！</div>
-- 問題コード: DKV
+<!-- 
+_class: text-top
+ -->
+
+## 答えてくれPingサーバー、ここにはuserモードとsystemdと、俺がいる！
+- 問題コード: DKV **(10/22)**
 - 点数: 150点
 - 難易度: 普通
 - 解説
@@ -160,8 +238,13 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
 - コメント: 前提条件を破っている / スクリプトの実行を忘れている回答が多かった
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## 俺自身がDHCPサーバーとなることだ
-- 問題コード: WSM
+- 問題コード: WSM **(10/22)**
 - 点数: 100 点
 - 難易度: 簡単
 - 解説
@@ -170,8 +253,13 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
   - DHCPクライアントを閉じる、メトリックを調整するなどが想定解
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## 奴の名は
-- 問題コード: QVF
+- 問題コード: QVF **(13/22)**
 - 点数: 150点
 - 難易度: 普通
 - 解説
@@ -179,8 +267,13 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
   - `/etc/nsswitch.conf`のpasswdに`LDAP`を追加すれば解決
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## やらかしたかもしれない...
-- 問題コード: LTY
+- 問題コード: LTY **(22/22)**
 - 点数: 100
 - 難易度: 簡単
 - 解説
@@ -188,16 +281,26 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
   - ログインシェルをbashなどに設定しなおせば問題なく解決する。
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## ストレージ消し飛んだ...
-- 問題コード: CFB
+- 問題コード: CFB **(8/22)**
 - 点数: 200
 - 難易度: 普通
 - 解説
   - バックアップ取得コードを読みながら、ストレージを復元する。
   - 複合、圧縮の展開をした後にzfs側に復元する必要がある。
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## Beer
-- 問題コード: SJQ
+- 問題コード: SJQ **(5/22)**
 - 点数: 200点
 - 難易度: 普通
 - 解説
@@ -208,8 +311,13 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
   - +router-idを変更
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## 魔王様の求人
-- 問題コード: AVU
+- 問題コード: AVU **(5/22)**
 - 点数: 250 点
 - 難易度: 難しい
 - 解説
@@ -222,8 +330,13 @@ trap "unset string" SIGINT ; string="Welcome to ICTSC ! "; while true; do echo -
     - 再起動もしくは`sudo vgchange -a y`を全nodeで行う
 
 ---
+
+<!-- 
+_class: text-top
+ -->
+
 ## オレオレS3
-- 問題コード: CYA
+- 問題コード: CYA **(7/22)**
 - 点数: 100点
 - 難易度: 普通
 - 解説
