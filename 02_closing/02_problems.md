@@ -39,7 +39,15 @@ OMU
 
 ---
 ## データベースに入れない！
-ING
+- 問題コード: ING
+- 点数: 200 点
+- 難易度: 普通
+- 解説
+  - 原因
+    - 経路中にあるRouterのファイアウォールでServerへのTCP3306パケットの通信が禁止されている
+    - ServerのufwでTCP3306パケットの受信が不許可
+    - MySQLサーバーがlocalhostのみをLISTENし、eth1にバインドされていない
+    - MySQLのuserユーザーがlocalhostからのログインのみ有効 (`'user'@'localhost'`)
 
 ---
 ## IPv6のDHCP
